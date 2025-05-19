@@ -115,3 +115,34 @@ def run_examples():
     print_header("EXTRACTING FROM MIXED TEXT")
     for text in EXAMPLES["mixed"]:
         display_results(text, extraction=True)
+
+def interactive_mode():
+    """Run a simple interactive mode."""
+    print_header("INTERACTIVE MODE")
+    print("Enter text to validate or extract data from (quit to exit)")
+    print("Prefix with 'extract:' to switch to extraction mode")
+
+    while True:
+        user_input = input("\n> ")
+        if user_input.lower() == 'quit':
+            break
+
+        if user_input.lower().startswith('extract:'):
+            # Extract mode
+            text = user_input[8:].strip()
+            if text:
+                display_results(text, extraction=True)
+        else:
+            # Validate mode
+            display_results(user_input)
+
+if __name__ == "__main__":
+    print("\nREGEX DATA EXTRACTION TOOL")
+    print("Supports: emails, URLs, credit cards, and hashtags.\n")
+
+    try:
+        run_examples()
+        interactive_mode()
+        print("\nThank you, stay safe")
+    except KeyboardInterrupt:
+        print("\n\nProgram terminated.")
