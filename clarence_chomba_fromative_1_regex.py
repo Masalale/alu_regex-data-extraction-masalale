@@ -20,3 +20,22 @@ EXAMPLES = {
     "mixed": ["Contact us at support@example.com or visit https://help.example.com.",
               "Check out #pythonregex and #coding on our site regex-examples.com."]
 }
+
+def validate_string(input_string):
+    """Validates a string against all patterns."""
+    if not input_string or not input_string.strip():
+        return {}, []
+
+    results = {}
+    valid_types = []
+
+    for data_type, pattern in COMPILED_PATTERNS.items():
+        try:
+            is_valid = bool(pattern.fullmatch(input_string))
+            results[data_type] = is_valid
+            if is_valid:
+                valid_types.append(data_type)
+        except Exception:
+            results[data_type] = False
+
+    return results, valid_types
