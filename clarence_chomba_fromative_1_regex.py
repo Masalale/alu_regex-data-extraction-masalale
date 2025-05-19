@@ -39,3 +39,20 @@ def validate_string(input_string):
             results[data_type] = False
 
     return results, valid_types
+
+def extract_data_from_text(text):
+    """Extracts all pattern matches from text."""
+    if not text or not text.strip():
+        return {key: [] for key in COMPILED_PATTERNS}
+
+    extracted_data = {key: [] for key in COMPILED_PATTERNS}
+
+    for data_type, pattern in COMPILED_PATTERNS.items():
+        try:
+            full_matches = [match.group(0) for match in pattern.finditer(text)]
+            if full_matches:
+                extracted_data[data_type].extend(full_matches)
+        except Exception:
+            pass
+            
+    return extracted_data
