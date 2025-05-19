@@ -56,3 +56,7 @@ def extract_data_from_text(text):
             pass
             
     return extracted_data
+
+def print_header(text):
+    """Print a simple header."""
+    print(f"\n=== {text} ===")
