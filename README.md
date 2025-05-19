@@ -31,7 +31,7 @@ It provides both validation (checking if a string fully matches a pattern) and e
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/alu_regex-data-extraction-masalale.git
+git clone https://github.com/Masalale/alu_regex-data-extraction-masalale.git
 cd alu_regex-data-extraction-masalale
 ```
 
