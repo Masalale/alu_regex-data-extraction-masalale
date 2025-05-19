@@ -99,3 +99,19 @@ def display_results(text, extraction=False):
 
             if not has_partial:
                 print("  • No partial matches found")
+
+def run_examples():
+    """Run tests using the example data."""
+    print_header("TESTING EXAMPLES")
+
+    # Test individual examples
+    for data_type, examples in EXAMPLES.items():
+        if data_type != "mixed":
+            print(f"\nTesting {data_type} examples:")
+            for example in examples:
+                display_results(example)
+
+    # Test mixed examples
+    print_header("EXTRACTING FROM MIXED TEXT")
+    for text in EXAMPLES["mixed"]:
+        display_results(text, extraction=True)
