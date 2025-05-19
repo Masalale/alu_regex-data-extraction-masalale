@@ -10,3 +10,13 @@ REGEX_PATTERNS = {
 
 # Pre-compile patterns for better performance
 COMPILED_PATTERNS = {key: re.compile(pattern) for key, pattern in REGEX_PATTERNS.items()}
+
+# --- Example Data ---
+EXAMPLES = {
+    "email": ["user@example.com", "firstname.lastname@company.co.uk"],
+    "url": ["https://www.example.com", "www.example.com", "regex-examples.com"],
+    "credit_card": ["1234 5678 9012 3456", "1234-5678-9012-3456"],
+    "hashtag": ["#example", "#ThisIsAHashtag"],
+    "mixed": ["Contact us at support@example.com or visit https://help.example.com.",
+              "Check out #pythonregex and #coding on our site regex-examples.com."]
+}
