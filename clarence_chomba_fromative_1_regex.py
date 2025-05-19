@@ -60,3 +60,42 @@ def extract_data_from_text(text):
 def print_header(text):
     """Print a simple header."""
     print(f"\n=== {text} ===")
+
+def display_results(text, extraction=False):
+    """Display validation or extraction results."""
+    if extraction:
+        # Extract and display patterns from text
+        extracted = extract_data_from_text(text)
+        print_header(f"Data Extracted from: \"{text}\"")
+
+        # Display found patterns
+        has_matches = False
+        for data_type, items in extracted.items():
+            if items:
+                has_matches = True
+                print(f"\n• {data_type.replace('_', ' ').capitalize()}s ({len(items)}):")
+                for i, item in enumerate(items, 1):
+                    print(f"  {i}. {item}")
+
+        if not has_matches:
+            print("No patterns matched in this text.")
+    else:
+        # Validate string against all patterns
+        results, valid_types = validate_string(text)
+        print_header(f"Validating: \"{text}\"")
+
+        if valid_types:
+            print(f"✓ Valid as: {', '.join(valid_types)}")
+        else:
+            print("✗ Not valid for any pattern")
+
+            # Show partial matches
+            extracted = extract_data_from_text(text)
+            has_partial = False
+            for data_type, items in extracted.items():
+                if items:
+                    has_partial = True
+                    print(f"  • {data_type}: {', '.join(items)}")
+
+            if not has_partial:
+                print("  • No partial matches found")
