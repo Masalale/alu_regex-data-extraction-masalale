@@ -52,7 +52,7 @@ def display_data(text_source_description, text_to_process):
         return
 
     for pattern_type, matches in found_data.items():
-        print(f"\n{pattern_type.replace('_', ' ').capitalize()}s:")
+        print(f"\n{pattern_type.replace('_', ' ').capitalize()}:")
         if matches:
             for item in matches:
                 print(f"- {item}")
