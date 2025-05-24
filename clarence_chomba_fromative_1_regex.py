@@ -40,12 +40,12 @@ def find_patterns(text):
     return found_all
 
 # Function to display data from text
-def display_data(text_source_description, text_to_process):
+def display_data(description, input_text):
     """Displays data from the given text."""
-    print(f"\n--- {text_source_description} ---")
-    print(f"\"{text_to_process}\"")
+    print(f"\n--- {description} ---")
+    print(f"\"{input_text}\"")
 
-    found_data = find_patterns(text_to_process)
+    found_data = find_patterns(input_text)
 
     if not any(found_data.values()):
         print("- No patterns found.")
