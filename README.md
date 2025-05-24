@@ -1,26 +1,22 @@
-# Regex Data Extraction Tool
+# Regex Pattern Tool
 
-A lightweight Python tool for validating and extracting common data patterns from text using regular expressions.
-
-## Author
-Clarence Chomba
+A streamlined Python tool for finding and displaying common data patterns from text using regular expressions.
 
 ## Overview
 
-This tool uses regex patterns to identify and extract common data types including:
-- Email addresses
-- URLs / Web addresses
-- Credit card numbers
-- Hashtags
-
-It provides both validation (checking if a string fully matches a pattern) and extraction (finding all matches in longer text) functionality.
+This tool demonstrates regex pattern matching by identifying and displaying the following patterns.
+- **Email addresses**
+- **Time formats**
+- **Credit card numbers**
+- **Hashtags**
 
 ## Features
 
-- **Pattern Validation**: Check if a string is a valid email, URL, credit card, or hashtag
-- **Data Extraction**: Extract all instances of supported patterns from text
-- **Interactive Testing**: User-friendly interface for testing strings and text
-- **Pre-built Examples**: Includes sample data to demonstrate functionality
+- **Pattern Finding**: Identifies all instances of supported patterns in text
+- **Clean Display**: Organized presentation of found patterns by category
+- **Interactive Mode**: User-friendly interface for testing with custom text
+- **Demo Examples**: Built-in samples demonstrating pattern recognition
+- **Edge Case Handling**: Properly excludes malformed data (e.g., incomplete emails, time without colons)
 
 ## Requirements
 
@@ -37,66 +33,43 @@ cd alu_regex-data-extraction-masalale
 
 ## Usage
 
-Run the script:
-
 ```bash
-python clarence_chomba_fromative_1_regex.py
+python3 clarence_chomba_fromative_1_regex.py
 ```
 
-### Interactive Mode
+### Program Flow
 
-After running the examples, the tool enters interactive mode where you can:
-
-1. **Validate a string**:
-   ```
-   > user@example.com
-   ```
-
-2. **Extract patterns from text**:
-   ```
-   > extract: Check out our website at example.com or email us at info@example.com
-   ```
-
-3. **Exit the tool**:
-   ```
-   > quit
-   ```
+1. **Demo Mode**: Displays three demo samples showing pattern recognition
+2. **Interactive Mode**: Enter your own text to find patterns
+3. **Exit**: Type 'quit' or 'exit' to end the program
 
 ## Examples
 
-Here's how the validation works:
+### Demo Output
 ```
-=== Validating: "user@example.com" ===
-✓ Valid as: email
-```
+--- Demo Sample 1 ---
+"Contact us at user@example.com. Meeting is at 14:30 today. My card is 1234-5678-9012-3456."
 
-And here's an extraction example:
-```
-=== Data Extracted from: "Contact us at support@example.com or visit https://help.example.com." ===
+Emails:
+- user@example.com
 
-• Emails (1):
-  1. support@example.com
+Time:
+- 14:30
 
-• Urls (1):
-  1. https://help.example.com
+Credit cards:
+- 1234-5678-9012-3456
 ```
 
-## Supported Patterns
+### Interactive Example
+```
+> Check out #Python and meet at 2:30 PM!
 
-### Email Addresses
-- Matches standard email format
-- Example: `user@example.com`, `firstname.lastname@company.co.uk`
+--- Your Input ---
+"Check out #Python and meet at 2:30 PM!"
 
-### URLs
-- Matches URLs
-- Handles subdomains and paths
-- Example: `https://www.example.com`, `example.com`, `regex-examples.com`
+Time:
+- 2:30 PM
 
-### Credit Card Numbers
-- Matches 16-digit numbers in common formats
-- Supports space-separated format (1234 5678 9012 3456)
-- Supports hyphen-separated format (1234-5678-9012-3456)
-
-### Hashtags
-- Matches standard hashtags starting with #
-- Example: `#example`, `#ThisIsAHashtag`
+Hashtags:
+- #Python
+```
